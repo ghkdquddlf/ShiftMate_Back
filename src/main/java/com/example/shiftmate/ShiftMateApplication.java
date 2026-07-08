@@ -5,13 +5,12 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 import org.springframework.scheduling.annotation.EnableScheduling;
 
-@SpringBootApplication
+@EnableScheduling
 @EnableJpaAuditing
-@EnableScheduling // 스케줄러 동작 활성화
+@SpringBootApplication
 public class ShiftMateApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(ShiftMateApplication.class, args);
-	}
-
+    public static void main(String[] args) {
+        SpringApplication.run(ShiftMateApplication.class, args);
+    }
 }

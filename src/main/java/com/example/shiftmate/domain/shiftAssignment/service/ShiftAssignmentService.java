@@ -77,6 +77,7 @@ public class ShiftAssignmentService {
 
         Map<Long, StoreMember> memberById = new HashMap<>();
         for (EmployeePreference preference : preferences) {
+            // N+1 발생 지점
             StoreMember member = preference.getMember();
             if (member == null || !isSchedulableMember(member)) {
                 continue;
@@ -129,7 +130,9 @@ public class ShiftAssignmentService {
             .collect(Collectors.toMap(id -> id, id -> Boolean.TRUE));
 
         for (EmployeePreference preference : preferences) {
+            // N+1 발생 지점
             ShiftTemplate template = preference.getShiftTemplate();
+            // N+1 발생 지점
             StoreMember member = preference.getMember();
             DayOfWeek dayOfWeek = preference.getDayOfWeek();
             PreferenceType type = preference.getType();
