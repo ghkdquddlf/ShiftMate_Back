@@ -1,0 +1,41 @@
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: shiftmate-mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: ShiftMate
+      MYSQL_ROOT_HOST: "%"
+      TZ: Asia/Seoul
+    ports:
+      - "33306:3306"
+    command:
+      - --character-set-server=utf8mb4
+      - --collation-server=utf8mb4_unicode_ci
+      - --default-time-zone=+09:00
+    volumes:
+      - shiftmate-mysql-data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "127.0.0.1", "-uroot", "-proot"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+
+  redis:
+    image: redis:7-alpine
+    container_name: shiftmate-redis
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+    volumes:
+      - shiftmate-redis-data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+
+volumes:
+  shiftmate-mysql-data:
+  shiftmate-redis-data:

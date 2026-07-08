@@ -28,19 +28,24 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.springframework.boot:spring-boot-starter-webmvc'
     implementation 'org.springframework.boot:spring-boot-starter-validation'
+    implementation 'org.springframework.boot:spring-boot-starter-websocket'
     compileOnly 'org.projectlombok:lombok'
+
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	runtimeOnly 'com.mysql:mysql-connector-j'
 	annotationProcessor 'org.projectlombok:lombok'
+    testCompileOnly 'org.projectlombok:lombok'
+    testAnnotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-data-jpa-test'
 	testImplementation 'org.springframework.boot:spring-boot-starter-webmvc-test'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 	implementation 'org.springframework.security:spring-security-crypto'
 	implementation 'org.springframework.boot:spring-boot-starter-security'
 
+	// IDEA 로컬 실행에서도 JJWT 구현체가 빠지지 않도록 구현/직렬화 모듈을 명시적으로 포함한다.
 	implementation 'io.jsonwebtoken:jjwt-api:0.12.5'
-	runtimeOnly 'io.jsonwebtoken:jjwt-impl:0.12.5'
-	runtimeOnly 'io.jsonwebtoken:jjwt-jackson:0.12.5'
+	implementation 'io.jsonwebtoken:jjwt-impl:0.12.5'
+	implementation 'io.jsonwebtoken:jjwt-jackson:0.12.5'
 
 	implementation 'org.springframework.boot:spring-boot-starter-data-redis'
     implementation 'com.fasterxml.jackson.core:jackson-databind'
