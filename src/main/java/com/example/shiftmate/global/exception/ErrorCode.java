@@ -117,7 +117,11 @@ public enum ErrorCode {
 
     // OpenShift
     PAST_DATE_CANNOT_REQUEST(HttpStatus.BAD_REQUEST, "이미 지난 날짜에는 오픈시프트를 생성할 수 없습니다."),
-    OPEN_SHIFT_NOT_FOUND(HttpStatus.BAD_REQUEST, "오픈시프트를 찾을 수 없습니다.");
+    OPEN_SHIFT_NOT_FOUND(HttpStatus.BAD_REQUEST, "오픈시프트를 찾을 수 없습니다."),
+
+    // Chat
+    CHAT_NOT_FOUND(HttpStatus.NOT_FOUND, "채팅방을 찾을 수 없습니다."),
+    CHAT_PARTICIPANT_ACCESS_DENIED(HttpStatus.FORBIDDEN, "해당 채팅방의 참여자가 아닙니다.");
 
     private final HttpStatus status;
     private final String message;
