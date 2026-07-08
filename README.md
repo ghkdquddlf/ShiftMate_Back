@@ -69,6 +69,11 @@ erDiagram
     STORE_MEMBER ||--o{ SUBSTITUTE_APPLICATION : applicant
 ```
 
+- Detailed ERD: [docs/shiftmate-erd.md](docs/shiftmate-erd.md)
+- Domain ERD with column descriptions: [docs/shiftmate-domain-erd.md](docs/shiftmate-domain-erd.md)
+- Shift planning ERD only: [docs/shift-planning-erd.md](docs/shift-planning-erd.md)
+- User flow diagram: [docs/user-flow-diagram.md](docs/user-flow-diagram.md)
+
 ## 5. 주요 비즈니스 동작
 
 ### 5.1 인증/토큰
